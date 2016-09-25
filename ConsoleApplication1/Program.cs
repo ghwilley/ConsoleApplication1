@@ -12,10 +12,11 @@ namespace ConsoleApplication1
         {
             Car myCar = new Car();
 
-            myCar.Make = "Oldsmobile";
-            myCar.Model = "Ark";
-            myCar.Year = 1989;
-            myCar.Color = "Red";
+
+            //myCar.Make = "Oldsmobile";
+            //myCar.Model = "Ark";
+            //myCar.Year = 1989;
+            //myCar.Color = "Red";
 
             Car myOtherCar;
             myOtherCar = myCar;
@@ -35,9 +36,10 @@ namespace ConsoleApplication1
                 myCar.Model,
                 myCar.Year,
                 myCar.Color);
-
+             
             Console.ReadLine();
         }
+
     }
 
     class Car
@@ -46,5 +48,10 @@ namespace ConsoleApplication1
         public string Model { get; set; }
         public int Year { get; set; }
         public string Color { get; set; }
+
+        public Car()
+        {
+            this.Make = "Nissan";
+        }
     }
 }
