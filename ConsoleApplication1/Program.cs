@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net;
 using System.Collections;
+using System.Timers;
 
 namespace ConsoleApplication1
 {
@@ -13,7 +14,7 @@ namespace ConsoleApplication1
     {
         static void Main(string[] args)
         {
-
+            /*
             //string[] names = { "Bob", "Steve", "Brian", "Chuck" };
             //Object initializer syntax
 
@@ -31,13 +32,13 @@ namespace ConsoleApplication1
                 new Car { Make = "Totoyoo", Model = "board", VIN = "67" }
             };
 
-            /*
+           
             var bmws = from car in myList
                        where car.Make == "BMW"
                        select car;
 
             
-            */
+            
 
             var bmws = myList.Where(p => p.Make == "BMW")
                              .OrderBy(p => p.VIN);
@@ -46,12 +47,37 @@ namespace ConsoleApplication1
 
             Console.WriteLine(myList.Exists(p => p.Model == "Stea"));
 
-           /* foreach (var car in bmws)
+            foreach (var car in bmws)
             {
                 Console.WriteLine("{0} {1}", car.Model, car.VIN);
             }*/
 
+            Timer myTimer = new Timer(2000);
+
+            myTimer.Elapsed += MyTimer_Elapsed;
+            myTimer.Elapsed += MyTimer_Elapsed1;
+
+            myTimer.Start();
+
+            Console.WriteLine("Press enter to remove red");
             Console.ReadLine();
+
+            myTimer.Elapsed -= MyTimer_Elapsed1;
+            
+            Console.ReadLine();
+        }
+
+        private static void MyTimer_Elapsed1(object sender, ElapsedEventArgs e)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Elapsed: {0:HH:mm:ss.ffff}", e.SignalTime);
+
+        }
+
+        private static void MyTimer_Elapsed(object sender, ElapsedEventArgs e)
+        {
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("Elapsed: {0:HH:mm:ss.ffff}", e.SignalTime);
         }
     }
 
