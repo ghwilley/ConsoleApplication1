@@ -13,49 +13,25 @@ namespace ConsoleApplication1
     {
         static void Main(string[] args)
         {
-            Car car1 = new Car();
-            car1.Make = "Olds";
-            car1.Model = "Cutlas";
-            car1.VIN = "A1";
 
-            Car car2 = new Car();
-            car2.Make = "Geo";
-            car2.Model = "Prism";
-            car2.VIN = "B2";
+            //string[] names = { "Bob", "Steve", "Brian", "Chuck" };
+            //Object initializer syntax
 
-            Book b1 = new Book();
-            b1.Author = "Ronny Talo";
-            b1.Title = "Making books go";
-            b1.ISBN = "0-00-00-00-0";
-            /*
-            //ArrayLists are dynamic 
-            ArrayList myArrayList = new ArrayList();
-            myArrayList.Add(car1);
-            myArrayList.Add(car2);
+           // Car car1 = new Car() { Make = "BMW", Model = "750", VIN = "C3" };
+           // Car car2 = new Car() { Make = "Toyota", Model = "Carola", VIN = "E4" };
 
-            foreach (Car car in myArrayList)
-            {
-                Console.WriteLine(car.Make);
-            }
-            
+            // Collection initializer
+            List<Car> myList = new List<Car>(){
+                new Car { Make = "olds", Model = "Stea", VIN = "1029" },
+                new Car { Make = "Nissa", Model = "Ult", VIN = "F6" },
+                new Car { Make = "Totoyoo", Model = "Taho", VIN = "E4" },
+                new Car { Make = "BMW", Model = "Wagon", VIN = "9N" },
+                new Car { Make = "Totoyoo", Model = "meat", VIN = "H8" },
+                new Car { Make = "BMW", Model = "handle", VIN = "err" },
+                new Car { Make = "Totoyoo", Model = "board", VIN = "67" }
+            };
 
-            //List<T>
-            List<Car> myList = new List<Car>();
-            myList.Add(car1);
-            myList.Add(car2);
 
-            foreach (Car car in myList)
-            {
-                Console.WriteLine(car);
-            }
-            */
-
-            //Dictionary<TKey, TValue>
-            Dictionary<string, Car> myDictionary = new Dictionary<string, Car>();
-            myDictionary.Add(car1.VIN, car1);
-            myDictionary.Add(car2.VIN, car2);
-
-            Console.WriteLine(myDictionary["B2"].Make);
 
 
             Console.ReadLine();
