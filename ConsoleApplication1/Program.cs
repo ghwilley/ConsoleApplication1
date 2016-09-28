@@ -31,8 +31,25 @@ namespace ConsoleApplication1
                 new Car { Make = "Totoyoo", Model = "board", VIN = "67" }
             };
 
+            /*
+            var bmws = from car in myList
+                       where car.Make == "BMW"
+                       select car;
 
+            
+            */
 
+            var bmws = myList.Where(p => p.Make == "BMW")
+                             .OrderBy(p => p.VIN);
+
+            myList.ForEach(p => Console.WriteLine("{0}", p.VIN));
+
+            Console.WriteLine(myList.Exists(p => p.Model == "Stea"));
+
+           /* foreach (var car in bmws)
+            {
+                Console.WriteLine("{0} {1}", car.Model, car.VIN);
+            }*/
 
             Console.ReadLine();
         }
